@@ -4,11 +4,17 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:prod": "vue-cli-service serve --mode production",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "inspect:dev": "rm -f ./webpack.config.development.js && vue-cli-service inspect --mode development >> webpack.config.development.js",
+    "inspect:prod": "rm -f ./webpack.config.production.js && vue-cli-service inspect --mode production >> webpack.config.production.js",
+    "analyz": "vue-cli-service build --report"
   },
   "dependencies": {
+    "axios": "^1.3.4",
     "core-js": "^3.8.3",
+    "element-ui": "^2.15.12",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
@@ -21,6 +27,7 @@
     "@vue/cli-plugin-router": "~5.0.0-rc.2",
     "@vue/cli-plugin-vuex": "~5.0.0-rc.2",
     "@vue/cli-service": "~5.0.0-rc.2",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
