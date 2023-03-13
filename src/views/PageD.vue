@@ -100,10 +100,14 @@ export default {
             this.getList();
         },
         async handleAdd() {
-            if (this.form.id) {
-                await updateUser(this.form)
-            } else {
-                await addUser(this.form)
+            try {
+                if (this.form.id) {
+                    await updateUser(this.form)
+                } else {
+                    await addUser(this.form)
+                }
+            } catch (error) {
+                console.log('新增/编辑接口报错：', error)
             }
             this.form = {
                 name: "",
